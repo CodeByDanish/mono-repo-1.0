@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule } from 'projects/shared-lib/src/public-api';
 import { UpdateRecordsComponent } from './update-records/update-records.component';
 import { DeleteRecordsComponent } from './delete-records/delete-records.component';
+import { AddRecordsComponent } from './add-records/add-records.component';
 @NgModule({
   declarations: [
     AppComponent,
     UpdateRecordsComponent,
     DeleteRecordsComponent,
+    AddRecordsComponent,
   ],
   imports: [
     SharedLibModule,

@@ -10,6 +10,7 @@ import { ClientAppComponent } from 'src/app/client-app/client-app.component';
 import { AllRecordsComponent } from 'src/app/all-records/all-records.component';
 import { UpdateRecordsComponent } from 'src/app/update-records/update-records.component';
 import { DeleteRecordsComponent } from 'src/app/delete-records/delete-records.component';
+import { AddRecordsComponent } from 'src/app/add-records/add-records.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,18 @@ import { DeleteRecordsComponent } from 'src/app/delete-records/delete-records.co
     ClientAppComponent,
     AllRecordsComponent,
     UpdateRecordsComponent,
-    DeleteRecordsComponent
+    DeleteRecordsComponent,
+    AddRecordsComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   exports: [
+    AddRecordsComponent,
     DeleteRecordsComponent,
     SharedLibComponent,
     ClientAppComponent,
