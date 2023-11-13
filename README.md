@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Angular Multi-Application Project
 
-This repository contains multiple Angular applications and a shared library for cross-application communication.
+This repository contains multiple Angular applications, Components and a shared library for cross-application communication.
 
 # Shared Library Service
 
