@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
 
-# Angular Multi-Application Project
+# Mono Repository
 
-This repository contains multiple Angular applications, Components and a shared library for cross-application communication.
+This repository serves as a mono repository housing multiple applications (A, B, C, D, E) and various components associated with each application and a shared library for cross-application communication.
 
 # Shared Library Service
 
@@ -42,6 +42,19 @@ Application name in app (delete-records)
 This Angular application is part of a multi-application project and is designed to consume the shared library for cross-application communication.
 Implement a feature that allows users to interact with the list of items from Application A (e.g., sorting or filtering).
 Application name in app (client-app)
+
+## Components
+
+### Components for Application A
+  - all-records
+### Components for Application B
+  - add-records
+### Components for Application C
+  - update-records
+### Components for Application D
+  - delete-records
+### Components for Application E
+  - client-app
 
 ## Getting Started
 
