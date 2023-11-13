@@ -1,0 +1,19 @@
+<h1> Delete User Records </h1>
+<table>
+  
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Phone</th>
+    <th>Website</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let list of employeeData">
+    <td>{{list.name}} </td>
+    <td>{{list.email}}</td>
+    <td>{{list.phone}}</td>
+    <td>{{list.website}}</td>
+    <td>  <button class="delete-button" (click)="confirmDeleteUser(list)">Delete</button></td>
+  
+  </tr>
+</table>

@@ -1,0 +1,51 @@
+<h1> Update User Records </h1>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Action</th>
+    </tr>
+    <ng-container *ngFor="let list of  employeeData">
+    <tr [class.editable]="selectedRow === list">
+      <td>
+        <ng-container *ngIf="selectedRow !== list; else editModeName">
+          {{ list.name }}
+        </ng-container>
+        <ng-template #editModeName>
+          <input type="text" name="name" [(ngModel)]="list.name" (ngModelChange)="checkFieldsValidity()">
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="selectedRow !== list; else editModeEmail">
+          {{ list.email }}
+        </ng-container>
+        <ng-template #editModeEmail>
+          <input type="text" name="email" [(ngModel)]="selectedRow.email" (ngModelChange)="checkFieldsValidity()">
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="selectedRow !== list; else editModePhone">
+          {{ list.phone }}
+        </ng-container>
+        <ng-template #editModePhone>
+          <input type="text" name="phone" [(ngModel)]="list.phone" (ngModelChange)="checkFieldsValidity()">
+        </ng-template>
+      </td>
+      <td>
+        <ng-container *ngIf="selectedRow !== list; else editModeWebsite">
+          {{ list.website }}
+        </ng-container>
+        <ng-template #editModeWebsite>
+          <input type="text" name="website" [(ngModel)]="list.website" (ngModelChange)="checkFieldsValidity()">
+        </ng-template>
+      </td>
+      <td>
+        <button *ngIf="selectedRow !== list" (click)="editRow(list)">Edit</button>
+        <button *ngIf="selectedRow === list" (click)="saveChanges(list)" [disabled]="isSaveDisabled">Save</button>
+        <button *ngIf="selectedRow === list" (click)="selectedRow = null">Cancel</button>
+      </td>
+    </tr>
+  </ng-container>
+  </table>

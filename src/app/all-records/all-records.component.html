@@ -1,0 +1,16 @@
+<h1> User Records List </h1>
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Email Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+    </tr>
+    <tr *ngFor="let list of employeeData">
+      <td>{{list.name}} </td>
+      <td>{{list.email}}</td>
+      <td>{{list.phone}}</td>
+      <td>{{list.website}}</td>
+    </tr>
+  </table>

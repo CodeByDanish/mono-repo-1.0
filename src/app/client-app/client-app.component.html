@@ -1,0 +1,69 @@
+<h1> Client App </h1>
+
+<div class="filter-section">
+    <label>Sort by : </label>
+    <select [(ngModel)]="sortOption" (change)="onSortChange()" class="select-box">
+      <option value="id">ID</option>
+      <option value="name">Name</option>
+    </select>
+    <div class="filter-section">
+    <label>Filter by Name : </label>
+    <input [(ngModel)]="filterText" (input)="onFilterChange()" class="filter-input" />
+  </div>
+  </div>
+  <div class="button-section">
+    <button>Add User</button>
+  </div>
+  
+  
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email Address</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Action</th>
+      </tr>
+      <ng-container *ngFor="let list of  filteredItems$ | async">
+      <tr [class.editable]="selectedRow === list">
+        <td>
+          <ng-container *ngIf="selectedRow !== list; else editModeName">
+            {{ list.name }}
+          </ng-container>
+          <ng-template #editModeName>
+            <input type="text" name="name" [(ngModel)]="list.name" (ngModelChange)="checkFieldsValidity()">
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="selectedRow !== list; else editModeEmail">
+            {{ list.email }}
+          </ng-container>
+          <ng-template #editModeEmail>
+            <input type="text" name="email" [(ngModel)]="selectedRow.email" (ngModelChange)="checkFieldsValidity()">
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="selectedRow !== list; else editModePhone">
+            {{ list.phone }}
+          </ng-container>
+          <ng-template #editModePhone>
+            <input type="text" name="phone" [(ngModel)]="list.phone" (ngModelChange)="checkFieldsValidity()">
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="selectedRow !== list; else editModeWebsite">
+            {{ list.website }}
+          </ng-container>
+          <ng-template #editModeWebsite>
+            <input type="text" name="website" [(ngModel)]="list.website" (ngModelChange)="checkFieldsValidity()">
+          </ng-template>
+        </td>
+        <td>
+          <button *ngIf="selectedRow !== list" (click)="editRow(list)">Edit</button>
+          <button *ngIf="selectedRow !== list" class="delete-button" (click)="confirmDeleteUser(list)">Delete</button>
+          <button *ngIf="selectedRow === list" (click)="saveChanges(list)" [disabled]="isSaveDisabled">Save</button>
+          <button *ngIf="selectedRow === list" (click)="selectedRow = null">Cancel</button>
+        </td>
+      </tr>
+    </ng-container>
+    </table>
