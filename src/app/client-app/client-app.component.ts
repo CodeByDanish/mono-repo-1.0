@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { SharedLibService } from 'projects/shared-lib/src/public-api';
 import { of } from 'rxjs';
 
@@ -8,6 +8,8 @@ import { of } from 'rxjs';
   styleUrls: ['./client-app.component.css']
 })
 export class ClientAppComponent {
+  @ViewChild('exampleModal') exampleModal!: ElementRef;
+
   employeeData: any;
   searchTerm: any = '';
   filteredItems$ : any
@@ -25,6 +27,7 @@ export class ClientAppComponent {
       this.filteredItems$  = this.service.applySortAndFilter(items,this.sortOption,this.filterText);
     });
   }
+  
   onSortChange() {
   this.filteredItems$ =  this.service.applySortAndFilter(this.employeeData,this.sortOption,this.filterText); 
   }
@@ -76,4 +79,6 @@ export class ClientAppComponent {
       this.filteredItems$ = of(this.employeeData)
     }
   }
+
+  
 }
