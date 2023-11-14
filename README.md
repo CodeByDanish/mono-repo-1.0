@@ -60,9 +60,8 @@ Application name in app (client-app)
 
 To get started with this project, follow these steps:
 1. Clone the repository.
-   - git clone -b master https://github.com/CodeByDanish/mono-repo.git
+   - git clone -b master https://github.com/CodeByDanish/mono-repo-1.0.git
 3. Install dependencies with `npm install`.
-4. Build the Shared Library  `ng build shared-lib`
 5. Run the development server :
    - Application-A (all-records) `ng serve all-records --port=4201`,
    - Application-B (add-records) `ng serve add-records --port=4202`,
